@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Petrica Nanca</title>
+
+	<link rel="stylesheet" type="text/css" href="css/app.css"/>
+</head>
+<body>
+
+<div class="overlay is-hidden" id="overlay">
+	<div class="modal-content">
+		<span class="button-close" onclick="closeModal();"></span>
+
+<div class="modal-header">
+            <div class="modal-title">Add Product</div>
+            <div class="modal-clearfix"></div>
+            <div class="modal-category">Automobiles</div>
+            <div class="modal-subtitle">Second-hand Car</div>
+        </div>
+
+        <div class="modal-clearfix"></div>
+
+        <form id="modal-form-section-one">
+            <!-- title -->
+            <div class="field-wrapper">
+              <label for="title-anouncement">
+                Title of anouncement:
+                <input class="form-item full-width" type="text" id="title-anouncement" name="title-anouncement"
+                    tabindex="1" value="">
+              </label>
+            </div>
+
+            <div class="modal-clearfix"></div>
+
+            <!-- brand -->
+            <div class="field-wrapper">
+                <label for="mark-brand">
+                    Make/Brand: <br />
+                    <select class="form-item" id="mark-brand" name="mark-brand" onChange="updateImage(this)" tabindex="2">
+                    </select>
+                    <div id="brand-image" class="logo"></div>
+
+                </label>
+            </div>
+
+            <!-- year -->
+            <div class="field-wrapper">
+                <label for="year">
+                    Manufacturing Year: <br />
+                    <select class="form-item" id="year" name="year" tabindex="3">
+                    </select>
+                </label>
+            </div>
+
+            <!-- mileage -->
+            <div class="field-wrapper">
+                <label for="mileage">
+                    Mileage:
+                    <input class="form-item" type="text" id="mileage" name="mileage" tabindex="4" value="">
+                </label>
+            </div>
+
+            <!-- fuel -->
+            <div class="field-wrapper">
+                <span class="to-left">Fuel:</span>
+                <div class="to-left">
+                  <label><input class="fuel" type="radio" name="fuel" value="gas" checked="checked" tabindex="5" />Gas</label>
+                  <label><input class="fuel" type="radio" name="fuel" value="diesel" tabindex="6" />Diesel</label>
+                </div>
+            </div>
+
+            <!-- color -->
+            <div class="field-wrapper">
+                <label for="color">
+                    Color(#Hex/Color):
+                    <input class="form-item" type="text" id="color" name="color" onKeyUp="updateColor(this)" tabindex="6">
+                </label> <br />
+                <div class="to-left">
+                  <div id="selected-color"></div>
+                </div>
+            </div>
+
+            <div class="modal-clearfix"></div>
+
+            <div class="modal-messages" id="errors"></div>
+
+            <div class="modal-clearfix"></div>
+
+            <input class="green-button to-right" type="button" value="Continue" tabindex="7" onClick="renderSecondForm()">
+        </form>
+
+        <form id="modal-form-section-two" class="hidden">
+            <!-- damaged Y/N -->
+            <div class="field-wrapper">
+                <span class="to-left">Vehicle Damaged:</span>
+                <div class="to-left">
+                    <label>
+                        <input class="dmg" type="radio" name="damaged" id="damage-no" value="No" checked="checked" tabindex="8" onClick="updateDamage()" />No
+                    </label>
+                    <label>
+                        <input class="dmg" type="radio" name="damaged" id="damage-yes" value="Yes" tabindex="9" onClick="updateDamage()" />Yes
+                    </label>
+                </div>
+            </div>
+            <div class="modal-clearfix"></div>
+
+
+            <div class="field-wrapper" id="damage-details-box" class="hidden">
+                <span class="to-left">Damage Details:</span><br />
+                <div class="to-left full-width">
+                    <textarea id="damage-details" name="damage-details" class="wide-textarea"></textarea>
+                </div>
+            </div>
+            <div class="modal-clearfix"></div>
+
+
+            <!-- price -->
+            <div class="field-wrapper">
+                <label for="price">
+                    Price:
+                    <input class="form-item" type="text" id="price" name="price" tabindex="11">
+                </label>
+            </div>
+            <div class="modal-clearfix"></div>
+
+
+            <!-- currency -->
+            <div class="field-wrapper">
+                <label for="currency">
+                    Currency: <br />
+                    <select class="form-item" id="currency" name="currency" onChange="setCurrency(this)" tabindex="12">
+                        <option value="EUR">EURO</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="field-wrapper" id="description-box">
+                <span class="to-left">Description</span><br />
+                <div class="to-left full-width">
+                    <textarea id="description" name="description" class="wide-textarea"></textarea>
+                </div>
+            </div>
+            <div class="modal-clearfix"></div>
+
+            <div class="modal-clearfix"></div>
+
+            <div class="modal-messages" id="errors-two"></div>
+
+            <div class="modal-clearfix"></div>
+
+            <div class="modal-clearfix"></div>
+            <div class="field-wrapper">
+              <input class="green-button to-right" type="button" value="Submit" tabindex="13" onClick="completeSubmission()">
+              <input class="gray-button to-right r-offset" type="button" value="Cancel" tabindex="14" onClick="cancelSubmission()">
+            </div>
+        </form>
+
+        <div class="modal-clearfix"></div>
+
+        <div id="show-submitted-data" class="data-results hidden">
+        </div>
+	</div>
+</div>
+
+<div class="center">
+	<h1 class="page-title">Petrica Nanca - Demo</h1>
+	<p><a class="button button-primary" onclick="openModal();" href="javascript: void(0);">Open modal</a></p>
+</div>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
