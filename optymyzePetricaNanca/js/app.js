@@ -221,19 +221,28 @@ var renderSecondForm = function() {
 var initialSetup = function() {
     resetData();
     titleField.value   = '';
+    titleField.classList.remove('form-error');
     brandField.value   = '-- Select a brand --';
+    brandField.classList.remove('form-error');
     yearField.value    = yearNow;
     mileageField.value = '';
+    mileageField.classList.remove('form-error');
     colorField.value   = '';
+    colorField.classList.remove('form-error');
     selectedColor.style.backgroundColor = 'white';
 
     damageNo.checked       = true;
     damageDetails.value    = '';
+    damageDetails.classList.remove('form-error');
     priceField.value       = '';
+    priceField.classList.remove('form-error');
     descriptionField.value = '';
+    descriptionField.classList.remove('form-error');
     firstForm.classList.remove('hidden');
     secondForm.classList.add('hidden');
     showSubmitted.classList.add('hidden');
+    errorMessages.innerHTML  = '';
+    errorMessages2.innerHTML = '';
 }
 
 /**
